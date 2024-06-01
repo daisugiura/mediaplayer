@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #player-controls {
+            margin-top: 20px;
+        }
+        .media-list {
+            list-style-type: none;
+            padding: 0;
+            display: none; /* Initially hidden */
+        }
+        .media-list li {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .playing {
+            color: red; /* Color for currently playing track */
+        }
+        #dropArea {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        #dropArea.hover {
+            border-color: #666;
+            background-color: #f0f0f0;
+        }
+        #volumeControl {
+            margin-top: 10px;
+        }
+        video, audio {
+            display: none;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .delete-button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .active {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Media Player</h1>
+    <div id="dropArea">ここにMP3またはMP4ファイルをドラッグアンドドロップしてください</div>
+    <button id="toggleListButton">リスト表示/非表示</button>
+    <ul class="media-list" id="mediaList"></ul>
+    <div id="player-controls">
+        <button id="playButton">Play</button>
+        <button id="pauseButton">Pause</button>
+        <button id="stopButton">Stop</button>
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+        <button id="repeatButton">Repeat</button>
+        <button id="playAllButton">Play All</button>
+        <button id="playRandomButton">Play Random</button>
+        <button id="deleteAllButton">Delete All</button>
+        <div id="volumeControl">
+            <label for="volumeSlider">Volume: </label>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
+    <video id="videoPlayer" controls></video>
+    <audio id="audioPlayer" controls></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
